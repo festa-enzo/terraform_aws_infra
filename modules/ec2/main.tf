@@ -1,7 +1,7 @@
 resource "aws_security_group" "app_sg" {
     name = "app=ec2=sg"
     description = "Security group for application"
-    vpc_id = module.vpc.vpc_id
+    vpc_id = var.vpc_id
 
     ingress {
         description = "HTTP"
@@ -61,7 +61,7 @@ resource "aws_autoscaling_group" "app_asg" {
     min_size = 2
     max_size = 4
 
-    vpc_zone_identifier = module.vpc.private_subnets
+    vpc_zone_identifier = var.private_subnets
 
     launch_template {
       id = aws_launch_template.app_template
