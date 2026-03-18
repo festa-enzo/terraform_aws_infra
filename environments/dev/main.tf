@@ -18,7 +18,7 @@ module "vpc" {
 
 # EC2 + ASG
 module "ec2" {
-  source = "./modules/compute"
+  source = "../../modules/ec2"
 
   project_name = var.project_name
   environment  = var.environment
