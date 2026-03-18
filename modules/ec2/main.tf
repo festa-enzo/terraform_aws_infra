@@ -64,7 +64,7 @@ resource "aws_autoscaling_group" "app_asg" {
     vpc_zone_identifier = var.private_subnets
 
     launch_template {
-      id = aws_launch_template.app_template
+      id = aws_launch_template.app_template.id
       version = "$Latest"
     }
 
